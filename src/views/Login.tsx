@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useHistory } from "react-router-dom";
 import Copyright from '../elements/Copyright';
+import LoginApiHelper from '../apiHelpers/LoginApiHelper';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -29,14 +30,28 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  errorMessage: {
+    color: theme.palette.error.main
+  }
 }));
 
 const Login: React.FC = () => {
-  let history = useHistory();
+  const history = useHistory();
+  const apiHelper = new LoginApiHelper();
   const classes = useStyles();
+  const [email, setEmail] = useState('eve.holt@reqres.in');
+  const [password, setPassword] = useState('cityslicka');
+  const [wrongUserOrPassword, setWrongUserOrPassword] = useState(false);
 
   function handleSubmit(event: any) {
-    history.push('/home');
+
+    apiHelper.login(email, password)
+      .then((res) => {
+        localStorage.setItem('token', res.token);
+        history.push('/home');
+      })
+      .catch(error => setWrongUserOrPassword(true))
+
     event.preventDefault();
   }
 
@@ -62,6 +77,8 @@ const Login: React.FC = () => {
             type="email"
             autoComplete="email"
             autoFocus
+            value={email}
+            onChange={e => setEmail(e.target.value)}
           />
           <TextField
             variant="outlined"
@@ -73,6 +90,8 @@ const Login: React.FC = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
           <Button
             type="submit"
@@ -83,6 +102,7 @@ const Login: React.FC = () => {
           >
             Sign In
           </Button>
+          {wrongUserOrPassword ? <p className={classes.errorMessage}>Wrong user or password</p> : ''}
         </form>
       </div>
       <Box mt={8}>

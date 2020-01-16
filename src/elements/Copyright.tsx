@@ -9,7 +9,8 @@ export default function Copyright() {
             {'Copyright ©'}
             <Link color="inherit" href="https://material-ui.com/">
                 OnFocus
-        </Link>{' '}
+            </Link>
+            {' '}
             {new Date().getFullYear()}
             {'.'}
         </Typography>
