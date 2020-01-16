@@ -8,7 +8,7 @@ const fakeAuth = {
     },
 };
 
-// Permite el lazy loading de los componentes y los carga
+// Allow lazy loading of components
 function WaitingComponent(Component: React.LazyExoticComponent<React.FunctionComponent<{}>>): any {
     return (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; }) => (
         <Suspense fallback={<div></div>}>
