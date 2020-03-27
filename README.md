@@ -1,44 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ejercicio - Agenda (frontend)
 
-## Available Scripts
+Realizar una aplicación del tipo "Agenda de Contactos" que incluya un acceso seguro a través de formulario de login con usuario y contraseña. 
 
-In the project directory, you can run:
+Una vez en el sistema listar los contactos mostrando información básica (por ejemplo, solo nombre y apellido).  hacer click en el contacto, desplegar mayor información. 
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Aclaraciones:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+* La aplicación web debe estar desarrollada con React.js
 
-### `npm test`
+* No es necesario crear una API de servicios propia. Se recomienda utilizar https://reqres.in/ o algún servicio similar. 
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Se pueden utilizar las librerías de npm que considere necesario
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Se valorará:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* Manejo de errores.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Orden y estructura en el código.
 
-### `npm run eject`
+* Diseño, estética y UX de la aplicación.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Requerimientos:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Formulario de Login:
 
-## Learn More
+* Campos de login con validación: 
+    * email: requerido. Solo formato de correo válido 
+    * password: requerido
+* Campo de password con posibilidad de hacer visible la contraseña ingresada
+* Botón de acceso
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pantalla de Lista de contactos:
+
+* Mostrar el nombre del usuario logeado. 
+
+* Obtener del servicio un listado de contactos y mostrar información reducida. 
+
+* Al hacer click o interactuar con cada contacto, se debe mostrar mayor información. Por ejemplo: foto de perfil, email, etc.
